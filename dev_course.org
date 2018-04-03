@@ -176,6 +176,8 @@ __pycache__/
 - графическая морда
 ** Морды
 - git GUI
+- [[https://www.youtube.com/watch?v=hkBVAi3oKvo][ungit]]
+
 * Учёт задач
 ** Мотивация
 Проблема:
