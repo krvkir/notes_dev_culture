@@ -1,0 +1,68 @@
+#+startup: beamer indent
+#+TITLE: Beamer presentation example
+#+DATE: \today
+#+EMAIL: Krasnoshekov_KI@Krasnoshekov-KI
+#+LANGUAGE: ru
+
+#+OPTIONS: H:3
+#+LATEX_CLASS: beamer
+#+BEAMER_THEME: Hannover
+#+BEAMER_COLOR_THEME: crane
+#+BEAMER_HEADER:
+#+LATEX_HEADER_EXTRA: \usepackage[russian]{babel}
+#+LATEX_HEADER_EXTRA: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER_EXTRA: \author[]{Кирилл Краснощёков, МГТНИИП}
+
+
+* Intro
+** Intro slide
+   :PROPERTIES:
+   :BEAMER_ENV: frame
+   :END:
+ Кириллическая надпись
+
+* Topic 1
+** Topic 1
+   :PROPERTIES:
+   :BEAMER_ENV: frame
+   :END:
+Intro to the section:
+- part 1
+- part 2
+- part 3
+** Part 1
+*** Part 1
+*** Thought 1
+*** Thought 2
+*** Thought 3
+*** Conclusion
+** Part 2
+*** Part 2
+*** Thought 1
+*** Thought 2
+*** Conclusion
+** Conclusion
+*** Topic conclusion
+Therefore, we should invest.
+
+* Topic 2
+** Topic 2
+   :PROPERTIES:
+   :BEAMER_ENV: frame
+   :END:
+Intro to the topic 2
+- one
+- two
+- three
+** Theorem
+*** Theorem
+*** In lay terms
+** Proof
+*** Step 1
+*** Step 2
+*** Step 3
+*** Conclusion
+** Discussion
+*** Usability
+*** Expandability
+*** Fertility

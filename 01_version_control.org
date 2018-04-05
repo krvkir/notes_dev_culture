@@ -1,0 +1,342 @@
+#+startup: beamer indent
+#+TITLE: Основы работы с git
+#+DATE: \today
+#+EMAIL: Krasnoshekov_KI@Krasnoshekov-KI
+#+LANGUAGE: ru
+
+#+EXCLUDE_TAGS: noexport
+#+OPTIONS: H:3
+#+LATEX_CLASS: beamer
+#+BEAMER_THEME: CambridgeUS
+#+BEAMER_COLOR_THEME: crane
+#+BEAMER_HEADER:
+#+LATEX_HEADER_EXTRA: \usepackage{pifont}
+#+LATEX_HEADER_EXTRA: \usepackage[russian]{babel}
+#+LATEX_HEADER_EXTRA: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER_EXTRA: \author[]{Кирилл Краснощёков, МГТНИИП}
+#+latex_header: \AtBeginSubsection[]{\begin{frame}<beamer>\frametitle{}\tableofcontents[currentsection,currentsubsection]\end{frame}}
+
+* Введение
+** Что такое системы управления версиями
+*** Что такое система управления версиями
+**** Файловая система и БД изменений
+:PROPERTIES:
+:BEAMER_COL: 0.65
+:END:
+#+ATTR_LATEX: :width 0.8\textwidth
+[[./01_vcs_00_what.png]]
+
+**** Граф изменений
+:PROPERTIES:
+:BEAMER_COL: 0.35
+:END:
+#+ATTR_LATEX: :height 0.8\textheight
+[[./00_branches_from_wikipedia.png]]
+
+*** Зачем это нужно
+- не терять результаты работы
+- работать совместно
+
+** Термины
+*** Репозиторий
+Репозиторий = БД изменений в проекте
+
+[[./01_vcs_02_git_directories.png]]
+
+*** Файлы проекта
+[[./01_vcs_01_git_file_states.png]]
+
+* Как пользоваться
+** Установка, настройка, запуск
+*** Установка
+1. скачать [[https://git-scm.com/download/win][последнюю версию]]
+2. установить (без админских прав)
+
+*** Настройка
+*~git config~*
+
+#+BEGIN_SRC sh
+$ git config --global user.name "John Doe"
+
+$ git config --global user.email "john@example.com"
+#+END_SRC
+
+*** Запуск
+**** 
+:PROPERTIES:
+:BEAMER_COL: 0.45
+:END:
+#+ATTR_LATEX: :height 0.8\textheight 
+[[./01_vcs_01_find_git.PNG]]
+**** 
+:PROPERTIES:
+:BEAMER_COL: 0.45
+:END:
+- git bash
+- git GUI
+
+** Как делать резервные копии
+*** Как делать резервные копии
+1. создать репозиторий
+2. добавить файлы в репозиторий
+3. поработать и записать изменения в репозиторий
+
+И повторять шаг 3.
+
+*** 1. Создать репозиторий
+*~git init~*
+
+#+BEGIN_SRC sh
+$ mkdir project_2
+
+$ cd project_2
+
+$ git init
+Initialized empty Git repository in project_2/.git/
+#+END_SRC
+
+*** \ding{43} Осмотреться
+*~git status~*
+
+#+BEGIN_SRC sh
+$ git status
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files 
+and use "git add" to track)
+#+END_SRC
+
+- делайте в любой непонятной ситуации
+
+*** 2. Добавить файлы в репозиторий
+#+ATTR_LATEX: :height 0.5\textheight
+[[./01_vcs_01_git_file_states_01_add.png]]
+
+1. Поместить файлы в буферную область: ~git add my_file.txt~
+2. Отправить в репозиторий: ~git commit~
+
+*** - в начале:
+**** листинг
+:PROPERTIES:
+:BEAMER_COL: 0.65
+:END:
+#+BEGIN_SRC sh
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include 
+   in what will be committed)
+
+        my_file.txt
+
+nothing added to commit 
+but untracked files present 
+(use "git add" to track)
+#+END_SRC
+
+**** картинка
+:PROPERTIES:
+:BEAMER_COL: 0.35
+:END:
+#+ATTR_LATEX: :width 0.98\textwidth
+[[./01_vcs_01_git_file_states_01_add.png]]
+
+*** - добавляем файл в буферную область:
+*~git add~*
+
+**** листинг
+:PROPERTIES:
+:BEAMER_COL: 0.65
+:END:
+#+BEGIN_SRC sh
+$ git add my_file.txt
+
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   my_file.txt
+#+END_SRC
+
+**** картинка
+:PROPERTIES:
+:BEAMER_COL: 0.35
+:END:
+#+ATTR_LATEX: :width 0.98\textwidth
+[[./01_vcs_01_git_file_states_01_add.png]]
+
+*** - отправляем изменения в репозиторий:
+*~git commit~*
+
+**** листинг
+:PROPERTIES:
+:BEAMER_COL: 0.65
+:END:
+#+BEGIN_SRC sh
+$ git commit -m "Very important change"
+[master (root-commit) 2642eb5] Very important change
+ 1 file changed, 12 insertions(+)
+ create mode 100644 my_file.txt
+
+$ git status
+On branch master
+nothing to commit, working tree clean
+#+END_SRC
+
+**** картинка
+:PROPERTIES:
+:BEAMER_COL: 0.35
+:END:
+#+ATTR_LATEX: :width 0.98\textwidth
+[[./01_vcs_01_git_file_states_01_add.png]]
+
+*** \ding{43} Комментируйте осмысленно!
+@@beamer:\only<1>{@@
+Так не надо:
+ [[./xkcd1296_comments.png]] 
+@@beamer:}@@
+
+@@beamer:\only<2>{@@
+Так лучше:
+[[./01_vcs_02_comments.PNG]]
+@@beamer:}@@
+
+*** 3. Записать изменения
+#+ATTR_LATEX: :height 0.5\textheight
+[[./01_vcs_01_git_file_states_02_change.png]]
+
+1. Поработать
+2. Поместить изменённые файлы в буферную область: ~git add my_file.txt~
+3. Отправить в репозиторий: ~git commit~
+
+*** \ding{43} Вывести историю
+*~git log~*
+
+#+BEGIN_SRC sh
+$ git log
+commit 2642eb5780a454a09bac4ef9113fc029cff27674
+Author: krvkir <krvkir@gmail.com>
+Date:   Thu Apr 5 12:31:19 2018 +0300
+
+    Very important change
+#+END_SRC
+
+** Как несколькоим людям работать над одним проектом
+*** Центральный сервер
+**** Центральный сервер
+:PROPERTIES:
+:BEAMER_COL: 0.65
+:END:
+#+ATTR_LATEX: :height 0.8\textheight
+[[./01_vcs_00_distributed_vcs.png]]
+
+**** Веб-сайты с проектами ("хостинги проектов")
+:PROPERTIES:
+:BEAMER_COL: 0.35
+:END:
+- github.com
+- *gitlab.com*
+- sourceforge.org
+- ...
+- внутренний сервер
+
+*** Как работать с сервером
+1. создать репозиторий на сервере
+2. клонировать репозиторий с сервера в локальную папку: ~git clone~
+3. работать, как обычно
+4. отправить изменения на сервер: ~git push~
+
+*** 1. Создать репозиторий
+#+ATTR_LATEX: :width 0.8\textwidth
+[[./01_vcs_03_remote_create_repo.PNG]]
+
+*** 1. Создать репозиторий
+#+ATTR_LATEX: :width 0.8\textwidth
+[[./01_vcs_03_remote_create_repo_2.PNG]]
+
+*** 1. Создать репозиторий
+#+ATTR_LATEX: :width 0.8\textwidth
+[[./01_vcs_03_remote_create_repo_3.PNG]]
+
+*** 2. Клонировать репозиторий с сервера
+*~git clone~*
+
+#+BEGIN_SRC sh
+$ git clone https://github.com/krvkir/notes_dev_culture.git                               
+Cloning into 'notes_dev_culture'...
+remote: Counting objects: 9, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 9 (delta 2), reused 9 (delta 2), pack-reused 0
+Unpacking objects: 100% (9/9), done.
+
+$ cd notes_dev_culture/
+
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working tree clean
+#+END_SRC
+
+*** \ding{43} Список серверов
+*~git remote~*
+
+#+BEGIN_SRC sh
+$ git remote
+origin
+
+$ git remote -v
+origin  git@github.com:krvkir/notes_dev_culture.git (fetch)
+origin  git@github.com:krvkir/notes_dev_culture.git (push)
+#+END_SRC
+
+*** 3. Работать, как обычно
+#+ATTR_LATEX: :height 0.5\textheight
+[[./01_vcs_01_git_file_states_02_change.png]]
+
+1. Поработать
+2. ~git add~
+3. ~git commit~
+
+*** 4. Отправить изменения на сервер
+*~git push~*
+
+#+BEGIN_SRC sh
+git push origin master
+#+END_SRC
+
+- ввести логин и пароль от *сервера*
+
+*** SSH vs HTTPS                                                 :noexport:
+Что это?
+- разные методы представиться серверу
+- https не надо настраивать, но придётся часто вводить логин и пароль
+- ssh надо настроить, но вводить надо только пароль
+
+Как настроить ssh?
+1. создать пару ключей
+2. загрузить *публичный* ключ на сервер
+ 
+** Как взять обновления с сервера
+*** Как взять обновления с сервера
+1. Скопировать репозиторий с сервера: ~git clone~
+2. Обновить: ~git pull~
+ 
+#+BEGIN_SRC sh
+$ git pull origin master
+#+END_SRC
+
+* Материалы
+:PROPERTIES:
+:BEAMER_ENV: frame
+:END:
+- [[https://git-scm.com/book/ru/v2][Pro Git]] (книга)
+- [[http://gitvisual.com][Git Visual]] (интерактивная обучалка)
