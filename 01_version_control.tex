@@ -1,4 +1,4 @@
-% Created 2018-04-05 Чт 19:06
+% Created 2018-04-06 Пт 14:53
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -40,10 +40,10 @@
 
 
 \section{Введение}
-\label{sec:org356d7fa}
+\label{sec:org26726b7}
 \subsection{Что такое системы управления версиями}
-\label{sec:orgc1e16f9}
-\begin{frame}[label={sec:orgf992b09}]{Что такое система управления версиями}
+\label{sec:orgca2d789}
+\begin{frame}[label={sec:org930d3d0}]{Что такое система управления версиями}
 \begin{columns}
 \begin{column}{0.65\columnwidth}
 \begin{center}
@@ -59,7 +59,7 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgd70ce89}]{Зачем это нужно}
+\begin{frame}[label={sec:orge1d2092}]{Зачем это нужно}
 \begin{itemize}
 \item не терять результаты работы
 \item работать совместно
@@ -67,8 +67,8 @@
 \end{frame}
 
 \subsection{Термины}
-\label{sec:org0ee7043}
-\begin{frame}[label={sec:orge58ae94}]{Репозиторий}
+\label{sec:org3fec840}
+\begin{frame}[label={sec:orgf792012}]{Репозиторий}
 Репозиторий = БД изменений в проекте
 
 \begin{center}
@@ -76,24 +76,24 @@
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org3fdff3a}]{Файлы проекта}
+\begin{frame}[label={sec:org4326ee3}]{Файлы проекта}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./01_vcs_01_git_file_states.png}
 \end{center}
 \end{frame}
 
 \section{Как пользоваться}
-\label{sec:org92d50fa}
+\label{sec:orgab06db2}
 \subsection{Установка, настройка, запуск}
-\label{sec:orgc3b3b41}
-\begin{frame}[label={sec:org2c43710}]{Установка}
+\label{sec:org676f660}
+\begin{frame}[label={sec:org3dd72b6}]{Установка}
 \begin{enumerate}
 \item скачать \href{https://git-scm.com/download/win}{последнюю версию}
 \item установить (без админских прав)
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:orgff4b08a}]{Настройка}
+\begin{frame}[fragile,label={sec:org8c886d0}]{Настройка}
  \alert{\texttt{git config}}
 
 \begin{verbatim}
@@ -103,7 +103,7 @@ $ git config --global user.email "john@example.com"
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[label={sec:org4b113ac}]{Запуск}
+\begin{frame}[label={sec:orge031c65}]{Запуск}
 \begin{columns}
 \begin{column}{0.45\columnwidth}
 \begin{center}
@@ -120,8 +120,8 @@ $ git config --global user.email "john@example.com"
 \end{frame}
 
 \subsection{Как делать резервные копии}
-\label{sec:orgc19bc2c}
-\begin{frame}[label={sec:org3a9edfd}]{Как делать резервные копии}
+\label{sec:org4b71334}
+\begin{frame}[label={sec:orgc7ccede}]{Как делать резервные копии}
 \begin{enumerate}
 \item создать репозиторий
 \item добавить файлы в репозиторий
@@ -131,7 +131,7 @@ $ git config --global user.email "john@example.com"
 И повторять шаг 3.
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org6ba3b26}]{1. Создать репозиторий}
+\begin{frame}[fragile,label={sec:org67157dc}]{1. Создать репозиторий}
  \alert{\texttt{git init}}
 
 \begin{verbatim}
@@ -144,7 +144,7 @@ Initialized empty Git repository in project_2/.git/
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org66b5218}]{\ding{43} Осмотреться}
+\begin{frame}[fragile,label={sec:org0bcf2e5}]{\ding{43} Осмотреться}
  \alert{\texttt{git status}}
 
 \begin{verbatim}
@@ -162,7 +162,7 @@ and use "git add" to track)
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org611fc3b}]{2. Добавить файлы в репозиторий}
+\begin{frame}[fragile,label={sec:org754cf3e}]{2. Добавить файлы в репозиторий}
  \begin{center}
 \includegraphics[height=0.5\textheight]{./01_vcs_01_git_file_states_01_add.png}
 \end{center}
@@ -173,7 +173,7 @@ and use "git add" to track)
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org456e2ca}]{- в начале:}
+\begin{frame}[fragile,label={sec:orga9e8f79}]{- в начале:}
  \begin{columns}
 \begin{column}{0.65\columnwidth}
 \begin{verbatim}
@@ -202,7 +202,7 @@ but untracked files present
 \end{columns}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org737c3b7}]{- добавляем файл в буферную область:}
+\begin{frame}[fragile,label={sec:org255e6e8}]{- добавляем файл в буферную область:}
  \alert{\texttt{git add}}
 
 \begin{columns}
@@ -230,7 +230,7 @@ Changes to be committed:
 \end{columns}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org83efbe3}]{- отправляем изменения в репозиторий:}
+\begin{frame}[fragile,label={sec:orgf81247d}]{- отправляем изменения в репозиторий:}
  \alert{\texttt{git commit}}
 
 \begin{columns}
@@ -255,7 +255,7 @@ nothing to commit, working tree clean
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org9acb511}]{\ding{43} Комментируйте осмысленно!}
+\begin{frame}[label={sec:org2560c68}]{\ding{43} Комментируйте осмысленно!}
 \only<1>{
 Так не надо:
  \begin{center}
@@ -271,7 +271,7 @@ nothing to commit, working tree clean
 }
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org3226340}]{3. Записать изменения}
+\begin{frame}[fragile,label={sec:orgd80fdb8}]{3. Записать изменения}
  \begin{center}
 \includegraphics[height=0.5\textheight]{./01_vcs_01_git_file_states_02_change.png}
 \end{center}
@@ -283,7 +283,7 @@ nothing to commit, working tree clean
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org36aa1f3}]{\ding{43} Вывести историю}
+\begin{frame}[fragile,label={sec:orge00593d}]{\ding{43} Вывести историю}
  \alert{\texttt{git log}}
 
 \begin{verbatim}
@@ -296,9 +296,9 @@ Date:   Thu Apr 5 12:31:19 2018 +0300
 \end{verbatim}
 \end{frame}
 
-\subsection{Как несколькоим людям работать над одним проектом}
-\label{sec:org9d31fd6}
-\begin{frame}[label={sec:org9f0196e}]{Центральный сервер}
+\subsection{Как нескольким людям работать над одним проектом}
+\label{sec:orgd2f232c}
+\begin{frame}[label={sec:orge85342b}]{Центральный сервер}
 \begin{columns}
 \begin{column}{0.65\columnwidth}
 \begin{center}
@@ -310,7 +310,7 @@ Date:   Thu Apr 5 12:31:19 2018 +0300
 \begin{itemize}
 \item github.com
 \item \alert{gitlab.com}
-\item sourceforge.org
+\item sourceforge.net
 \item \ldots{}
 \item внутренний сервер
 \end{itemize}
@@ -318,7 +318,7 @@ Date:   Thu Apr 5 12:31:19 2018 +0300
 \end{columns}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org943c376}]{Как работать с сервером}
+\begin{frame}[fragile,label={sec:orge1958d5}]{Как работать с сервером}
  \begin{enumerate}
 \item создать репозиторий на сервере
 \item клонировать репозиторий с сервера в локальную папку: \texttt{git clone}
@@ -327,25 +327,25 @@ Date:   Thu Apr 5 12:31:19 2018 +0300
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org8a2cecd}]{1. Создать репозиторий}
+\begin{frame}[label={sec:org6373914}]{1. Создать репозиторий}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{./01_vcs_03_remote_create_repo.PNG}
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org6f8333a}]{1. Создать репозиторий}
+\begin{frame}[label={sec:orgea4a16a}]{1. Создать репозиторий}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{./01_vcs_03_remote_create_repo_2.PNG}
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org2f650fb}]{1. Создать репозиторий}
+\begin{frame}[label={sec:orgfa4e295}]{1. Создать репозиторий}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{./01_vcs_03_remote_create_repo_3.PNG}
 \end{center}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:orgf7212af}]{2. Клонировать репозиторий с сервера}
+\begin{frame}[fragile,label={sec:orgaad8efb}]{2. Клонировать репозиторий с сервера}
  \alert{\texttt{git clone}}
 
 \begin{verbatim}
@@ -365,7 +365,7 @@ nothing to commit, working tree clean
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:orga45b419}]{\ding{43} Список серверов}
+\begin{frame}[fragile,label={sec:org779d230}]{\ding{43} Список серверов}
  \alert{\texttt{git remote}}
 
 \begin{verbatim}
@@ -378,7 +378,7 @@ origin  git@github.com:krvkir/notes_dev_culture.git (push)
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org537b4ee}]{3. Работать, как обычно}
+\begin{frame}[fragile,label={sec:org8a12ef0}]{3. Работать, как обычно}
  \begin{center}
 \includegraphics[height=0.5\textheight]{./01_vcs_01_git_file_states_02_change.png}
 \end{center}
@@ -390,7 +390,7 @@ origin  git@github.com:krvkir/notes_dev_culture.git (push)
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org80552f7}]{4. Отправить изменения на сервер}
+\begin{frame}[fragile,label={sec:org638164d}]{4. Отправить изменения на сервер}
  \alert{\texttt{git push}}
 
 \begin{verbatim}
@@ -403,8 +403,8 @@ git push origin master
 \end{frame}
 
 \subsection{Как взять обновления с сервера}
-\label{sec:orgefc9251}
-\begin{frame}[fragile,label={sec:org1f0d292}]{Как взять обновления с сервера}
+\label{sec:orgbbd4b41}
+\begin{frame}[fragile,label={sec:org431cc94}]{Как взять обновления с сервера}
  \begin{enumerate}
 \item Скопировать репозиторий с сервера: \texttt{git clone}
 \item Обновить: \texttt{git pull}
@@ -415,7 +415,7 @@ $ git pull origin master
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[label={sec:orgdefbc5e}]{Материалы}
+\begin{frame}[label={sec:org3553ebd}]{Материалы}
 \begin{itemize}
 \item \href{https://git-scm.com/book/ru/v2}{Pro Git} (книга)
 \item \href{http://gitvisual.com}{Git Visual} (интерактивная обучалка)
